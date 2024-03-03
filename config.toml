@@ -1,0 +1,63 @@
+baseurl = "http://www.vishwamitra.dev"
+title = "Vishwamitra Hegde"
+theme = "hugo-coder"
+languagecode = "en"
+defaultcontentlanguage = "en"
+
+paginate = 20
+
+#disqusShortname = "yourdiscussshortname"
+
+[markup.highlight]
+style = "github-dark"
+
+[params]
+  author = "Vishwamitra Hegde"
+  info = "Software Engineer"
+  description = "A personal blog where I write and document my learnings"
+  keywords = "blog,developer,personal"
+  avatarurl = "images/me-hike.jpeg"
+  #gravatar = "https://gravatar.com/hegdemitra"
+
+  faviconSVG = "/img/favicon.svg"
+  favicon_32 = "/img/favicon-32x32.png"
+  favicon_16 = "/img/favicon-16x16.png"
+
+  since = 2020
+
+  enableTwemoji = true
+
+  colorScheme = "auto"
+  hidecolorschemetoggle = false
+
+  # customCSS = ["css/custom.css"]
+  # customSCSS = ["scss/custom.scss"]
+  # customJS = ["js/custom.js"]
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+  author = "authors"
+
+# Social links
+[[params.social]]
+  name = "LinkedIn"
+  icon = "fa-brands fa-linkedin fa-2x"
+  weight = 1
+  url = "https://www.linkedin.com/in/vishwamitrahegde"
+[[params.social]]
+  name = "GitHub"
+  icon = "fa-brands fa-github fa-2x"
+  weight = 2
+  url = "https://github.com/hegdevishwa"
+
+# Menu links
+[[menu.main]]
+  name = "About"
+  weight = 1
+  url = "about/"
+  [[menu.main]]
+  name = "Blog"
+  weight = 2
+  url  = "posts/"

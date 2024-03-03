@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Vishwamitra Hegde</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Vishwamitra Hegde</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Choosing the right tool for blogging</title>
+      <link>http://localhost:1313/posts/test/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/test/</guid>
+      <description>So in the peak pandamic, I needed someting to pass my time, so decided to create a blog site.&#xA;I initially thought of handcrafting myself with the ReactJs as I thout this will be a learning for me but soon realised it&amp;rsquo;s going to be not easy as I don&amp;rsquo;t like CSS that much. Though I had a bit of experince working with react I don&amp;rsquo;t consider myself as an expert UI developer.</description>
+    </item>
+  </channel>
+</rss>

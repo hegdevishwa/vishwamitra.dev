@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vishwamitra Hegde</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Vishwamitra Hegde</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>Welcome to my corner of the internet where I share my thoughts, experiences, and passions. I&amp;rsquo;m Vishwamitra Hegde, though you might hear others refer to me as Vishwa or Vish for short.&#xA;By profession, I&amp;rsquo;m a Software Engineer with over a decade of experience developing scalable software solutions across various domains and industries. Beyond the confines of code, I&amp;rsquo;m an avid explorer, whether it&amp;rsquo;s delving into the latest technologies or venturing into the great outdoors.</description>
+    </item>
+    <item>
+      <title>Choosing the right tool for blogging</title>
+      <link>http://localhost:1313/posts/test/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/test/</guid>
+      <description>So in the peak pandamic, I needed someting to pass my time, so decided to create a blog site.&#xA;I initially thought of handcrafting myself with the ReactJs as I thout this will be a learning for me but soon realised it&amp;rsquo;s going to be not easy as I don&amp;rsquo;t like CSS that much. Though I had a bit of experince working with react I don&amp;rsquo;t consider myself as an expert UI developer.</description>
+    </item>
+  </channel>
+</rss>
