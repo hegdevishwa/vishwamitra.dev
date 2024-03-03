@@ -6,7 +6,7 @@ aliases = ["about-me", "vishwamitra-hegde", "contact"]
 author = "Vishwamitra Hegde"
 +++
 
-Welcome to my corner of the internet where I share my thoughts, experiences, and passions. I'm Vishwamitra Hegde, though you might hear others refer to me as Vishwa or Vish for short.
+Welcome to my corner of the internet where I share my thoughts, experiences, and passions. I'm Vishwamitra Hegde, but people call me Vishwa or Vish for short.
 
 By profession, I'm a Software Engineer with over a decade of experience developing scalable software solutions across various domains and industries. Beyond the confines of code, I'm an avid explorer, whether it's delving into the latest technologies or venturing into the great outdoors. I find joy in experimenting, whether it's in the realm of software or the kitchen, always seeking new adventures and experiences to share with you.
 
