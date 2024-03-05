@@ -20,7 +20,7 @@
       <link>http://localhost:1313/posts/choosing-right-tool/</link>
       <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/choosing-right-tool/</guid>
-      <description>In the peak pandemic, I needed something to pass my time, so decided to create a blog site. g I initially thought of handcrafting myself with the ReactJs as I though this will be a learning for me but soon realized it&amp;rsquo;s going to be not easy as I don&amp;rsquo;t like CSS that much. Though I had a bit of experience working with react I don&amp;rsquo;t consider myself as an expert UI developer.</description>
+      <description>During the peak of the pandemic, I found myself with more time on my hands and a desire to be creative. I decided to start a blog, but I quickly realized I needed a platform that would allow me to focus on writing and sharing my ideas, not wrestling with code.&#xA;I initially thought about building the website myself using ReactJS, as I wanted to learn more about front-end development. However, I soon discovered that my nemesis, CSS, would pose a significant challenge.</description>
     </item>
   </channel>
 </rss>
