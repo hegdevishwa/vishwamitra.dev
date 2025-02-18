@@ -60,4 +60,4 @@ style = "github-dark"
   [[menu.main]]
   name = "Tech Blog"
   weight = 2
-  url  = "posts/tech-blog"
+  url  = "posts/tech-blog/"
