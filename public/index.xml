@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Enum HashCode Conundrum: Avoiding ETag Issues in RESTful APIs</title>
-      <link>http://localhost:1313/posts/tech-blog/hash-code-saga/</link>
+      <link>http://localhost:1313/posts/hash-code-saga/</link>
       <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tech-blog/hash-code-saga/</guid>
+      <guid>http://localhost:1313/posts/hash-code-saga/</guid>
       <description>&lt;p&gt;In my team, to avoid mid-air collisions on the PUT operations on REST endpoints, we use &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag#avoiding_mid-air_collisions&#34;&gt;ETag and If-Match&lt;/a&gt; headers. ETag value is nothing but a hash code generated based off entity fields. This is how it all works&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;During a GET request, the server sends the calculated hash as the ETag header.&lt;/li&gt;&#xA;&lt;li&gt;The client then sends this ETag value back in the If-Match header during subsequent PUT requests.&lt;/li&gt;&#xA;&lt;li&gt;Upon receiving a PUT request, the server recalculates the hash code based on the current state of the entity and compares it to the value provided in the If-Match header.&lt;/li&gt;&#xA;&lt;li&gt;If the calculated hash and the If-Match value don&amp;rsquo;t match, the server rejects the request and returns a &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/412&#34;&gt;412 Precondition Failed&lt;/a&gt; error, indicating that the resource has been modified since the client last retrieved it&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;We developed a new Java service featuring several CRUD endpoints. After testing, we deployed it to a Kubernetes cluster with two nodes. Initial validation indicated that the service was functioning correctly. However, after a few days of heavier use, some users began experiencing frequent 412 errors on a specific endpoint. Standard troubleshooting steps, such as clearing cookies and browser cache, proved ineffective.&lt;/p&gt;</description>
     </item>
     <item>
@@ -24,9 +24,9 @@
     </item>
     <item>
       <title>Choosing the right tool for blogging</title>
-      <link>http://localhost:1313/posts/tech-blog/choosing-right-tool/</link>
+      <link>http://localhost:1313/posts/choosing-right-tool/</link>
       <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/tech-blog/choosing-right-tool/</guid>
+      <guid>http://localhost:1313/posts/choosing-right-tool/</guid>
       <description>&lt;p&gt;Initially, I thought about building the website myself using ReactJS, as I wanted to learn more about front-end development. However, I soon discovered that my nemesis, CSS, would pose a significant challenge. While I had some experience with React, I wouldn&amp;rsquo;t consider myself a UI expert, and the thought of spending more time fighting with stylesheets than writing content discouraged me.&lt;/p&gt;&#xA;&lt;p&gt;So, I began exploring simpler options that would allow me to write freely without getting bogged down in the technical aspects. I considered several platforms:&lt;/p&gt;</description>
     </item>
   </channel>
