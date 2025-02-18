@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Test · Vishwamitra Hegde
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Vishwamitra Hegde">
+<meta name="description" content="Hash code of enums in Java">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Test">
+  <meta name="twitter:description" content="Hash code of enums in Java">
+
+<meta property="og:url" content="http://localhost:1313/posts/test/">
+  <meta property="og:site_name" content="Vishwamitra Hegde">
+  <meta property="og:title" content="Test">
+  <meta property="og:description" content="Hash code of enums in Java">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-08-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-08-12T00:00:00+00:00">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/test/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Vishwamitra Hegde
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/test/">
+              Test
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2020-08-12T00:00:00Z">
+                August 12, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>In my team, to avoid mid-air collisions on the PUT operations on REST endpoints, we use <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag#avoiding_mid-air_collisions"  class="external-link" target="_blank" rel="noopener">ETag and If-Match</a> headers. ETag value is nothing but a hash code generated based off entity fields. This is how it all works</p>
+<ul>
+<li>During a GET request, the server sends the calculated hash as the ETag header.</li>
+<li>The client then sends this ETag value back in the If-Match header during subsequent PUT requests.</li>
+<li>Upon receiving a PUT request, the server recalculates the hash code based on the current state of the entity and compares it to the value provided in the If-Match header.</li>
+<li>If the calculated hash and the If-Match value don&rsquo;t match, the server rejects the request and returns a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/412"  class="external-link" target="_blank" rel="noopener">412 Precondition Failed</a> error, indicating that the resource has been modified since the client last retrieved it</li>
+</ul>
+<p>We developed a new Java service featuring several CRUD endpoints. After testing, we deployed it to a Kubernetes cluster with two nodes. Initial validation indicated that the service was functioning correctly. However, after a few days of heavier use, some users began experiencing frequent 412 errors on a specific endpoint. Standard troubleshooting steps, such as clearing cookies and browser cache, proved ineffective.</p>
+<p>After several hours of intense debugging, I managed to reproduce the issue. I observed a pattern: each GET request generated a new ETag (hash code), even when the underlying resource remained unchanged. I meticulously reviewed the code, but nothing appeared obviously wrong. However, while examining the logs, I noticed that requests were being routed to different cluster instances. It became clear that these instances were generating different hash codes for the same entity. The question was: why?</p>
+<p>It turned out that one of the entity&rsquo;s fields was an Enum. Java&rsquo;s default hashCode() implementation for enums relies on the object&rsquo;s memory address within the JVM. Since each instance of the service running on different nodes had its own JVM with different memory addresses, the same enum value had different hash codes across instances. This discrepancy led to the inconsistent ETag generation and, consequently, the 412 errors.</p>
+<p>The issue was difficult to identify initially because, in a local development environment, the service typically runs within a single JVM, resulting in consistent hash codes. However, the problem manifested when the service was deployed across multiple nodes in the cluster, each with its own JVM.</p>
+<p>The fix was to generate the hash code based on ordinal values rather then the enum itself. To mitigate the risks of encountering this issue, we added a helper method in our utility lib to generate hash codes and mandated using it instead.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2020 -
+    
+    2025
+     Vishwamitra Hegde 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
