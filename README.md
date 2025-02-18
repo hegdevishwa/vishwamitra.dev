@@ -1,2 +1,0 @@
-# vishwamitra.dev
-Personal blogging 
